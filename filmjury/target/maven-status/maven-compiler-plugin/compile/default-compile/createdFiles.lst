@@ -1,0 +1,15 @@
+com\example\filmjury\repository\CriterionRepository.class
+com\example\filmjury\service\FilmService.class
+com\example\filmjury\FilmjuryApplication.class
+com\example\filmjury\model\Criterion.class
+com\example\filmjury\model\Entry.class
+com\example\filmjury\repository\ScoreCardRepository.class
+com\example\filmjury\controller\JudgeController.class
+com\example\filmjury\controller\ContestController.class
+com\example\filmjury\config\CorsConfig.class
+com\example\filmjury\controller\EntryController.class
+com\example\filmjury\repository\EntryRepository.class
+com\example\filmjury\controller\CriterionController.class
+com\example\filmjury\model\ScoreCard.class
+com\example\filmjury\model\Judge.class
+com\example\filmjury\repository\JudgeRepository.class

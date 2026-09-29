@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "9b1c7a82-f5c4-42b7-8149-a29d5b0d876a",
+		"name": "filmjury",
+		"description": "Postman Collection for Filmjury Spring Boot API covering all Criteria, Judges, Entries, Contest, and OpenAPI endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Criteria",
+			"item": [
+				{
+					"name": "Get All Criteria",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/criteria",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"criteria"
+							]
+						},
+						"description": "Retrieves all scoring criteria."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Criterion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Cinematography\",\n  \"description\": \"Visual aesthetics, composition, lighting, and camera movement\",\n  \"maxScore\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/criteria",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"criteria"
+							]
+						},
+						"description": "Creates a new evaluation criterion."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Criterion",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Cinematography & Visual Design\",\n  \"description\": \"Visual aesthetics, composition, lighting, camera angles, and color palette\",\n  \"maxScore\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/criteria/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"criteria",
+								"1"
+							]
+						},
+						"description": "Updates an existing evaluation criterion by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Criterion",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/criteria/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"criteria",
+								"1"
+							]
+						},
+						"description": "Deletes a criterion by ID. Returns 204 on success, 404 if not found, or 409 if foreign-key constraint prevents deletion."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for managing competition evaluation criteria"
+		},
+		{
+			"name": "Judges",
+			"item": [
+				{
+					"name": "Get All Judges",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/judges",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"judges"
+							]
+						},
+						"description": "Retrieves a list of all registered judges."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Judge",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Christopher Nolan\",\n  \"contactDetails\": \"nolan@syncopyfilms.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/judges",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"judges"
+							]
+						},
+						"description": "Registers a new judge for the film competition."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for managing judges"
+		},
+		{
+			"name": "Entries",
+			"item": [
+				{
+					"name": "Get All Entries",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/entries",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"entries"
+							]
+						},
+						"description": "Retrieves all submitted film entries."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Entry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Echoes of Time\",\n  \"genre\": \"Sci-Fi / Drama\",\n  \"videoLink\": \"https://vimeo.com/sample-echoes-of-time\",\n  \"teamDetails\": \"Director: Vignesh R, Cinematographer: Alex Morgan, Editor: Sarah Connor\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/entries",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"entries"
+							]
+						},
+						"description": "Submits a new film entry to the contest."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Leaderboard",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/entries/leaderboard",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"entries",
+								"leaderboard"
+							]
+						},
+						"description": "Retrieves the leaderboard with entries sorted by finalScore in descending order."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for managing film entries and viewing leaderboard"
+		},
+		{
+			"name": "Contest",
+			"item": [
+				{
+					"name": "Assign Judge to Entry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/contest/assign-judge?entryId=1&judgeId=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"contest",
+								"assign-judge"
+							],
+							"query": [
+								{
+									"key": "entryId",
+									"value": "1",
+									"description": "ID of the film entry"
+								},
+								{
+									"key": "judgeId",
+									"value": "1",
+									"description": "ID of the judge to assign"
+								}
+							]
+						},
+						"description": "Assigns a specific judge to evaluate an entry."
+					},
+					"response": []
+				},
+				{
+					"name": "Submit Scorecard",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"entry\": {\n    \"id\": 1\n  },\n  \"judge\": {\n    \"id\": 1\n  },\n  \"criteriaScores\": {\n    \"1\": 18,\n    \"2\": 23\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/contest/submit-score",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"contest",
+								"submit-score"
+							]
+						},
+						"description": "Submits a judge's scorecard for an entry with criterion scores, updates the entry's final average score, and marks status as EVALUATED."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for judging assignments and submitting scorecards"
+		},
+		{
+			"name": "Documentation",
+			"item": [
+				{
+					"name": "Get OpenAPI Docs (JSON)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v3/api-docs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v3",
+								"api-docs"
+							]
+						},
+						"description": "Fetches OpenAPI 3 specification in JSON format."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Swagger UI (HTML)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/swagger-ui.html",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"swagger-ui.html"
+							]
+						},
+						"description": "Swagger UI interactive web interface."
+					},
+					"response": []
+				}
+			],
+			"description": "Swagger and OpenAPI documentation endpoints"
+		}
+	]
+}
